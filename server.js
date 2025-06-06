@@ -19,7 +19,15 @@ const errorHandler = require('./middlewares/errorHandler');
 
 dotenv.config();
 const app = express();
-app.use(cors());
+
+
+app.use(cors({
+  origin: 'https://rubis-frontend-production.up.railway.app',
+  credentials: true, // si tu envoies des cookies ou des headers d'authentification
+}));
+
+
+
 app.use(express.json());
 
 app.use('/api/utilisatrices', userRoutes);
